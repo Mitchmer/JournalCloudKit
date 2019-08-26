@@ -12,17 +12,23 @@ class EntryListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        EntryController.shared.fetchEntries { (success) in
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return EntryController.shared.entries.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        let entry = EntryController.shared.entries[indexPath.row]
+        
+        cell.textLabel?.text = entry.title
+        
         return cell
     }
 
@@ -44,5 +50,12 @@ class EntryListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            if let index = tableView.indexPathForSelectedRow {
+                guard let destinationVC = segue.destination as? EntryDetailViewController else { return }
+                let entry = EntryController.shared.entries[index.row]
+                destinationVC.entry = entry
+            }
+        }
     }
 }
