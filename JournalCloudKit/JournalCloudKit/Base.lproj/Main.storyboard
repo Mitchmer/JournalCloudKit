@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="1068.1159420289855" y="113.83928571428571"/>
         </scene>
-        <!--Entry Detail View Controller-->
+        <!--New In Tree-->
         <scene sceneID="h4R-Q3-dUi">
             <objects>
                 <viewController id="jn4-D9-Fhi" customClass="EntryDetailViewController" customModule="JournalCloudKit" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,24 +75,73 @@
                                     <action selector="titleTextField:" destination="COE-9J-pSe" eventType="editingDidEnd" id="JLO-F3-xzu"/>
                                 </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tell me about it..." translatesAutoresizingMaskIntoConstraints="NO" id="JDF-Sv-Reo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDF-Sv-Reo">
                                 <rect key="frame" x="41.5" y="158" width="331" height="626"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <mutableString key="text">Twenty-five years and my life is still
+Trying to get up that great big hill of hope
+For a destination
+I realized quickly when I knew I should
+That the world was made up of this brotherhood of man
+For whatever that means
+And so I cry sometimes
+When I'm lying in bed just to get it all out
+What's in my head
+And I, I am feeling a little peculiar
+And so I wake in the morning
+And I step outside
+And I take a deep breath and I get real high
+And I scream from the top of my lungs
+What's going on?
+And I say, hey yeah yeah, hey yeah yeah
+I said hey, what's going on?
+And I say, hey yeah yeah, hey yeah yeah
+I said hey, what's going on?
+Oh, oh oh
+Oh, oh oh
+And I try, oh my god do I try
+I try all the time, in this institution
+And I pray, oh my god do I pray
+I pray every single day
+For a revolution
+And so I cry sometimes
+When I'm lying bed
+Just to get it all out
+What's in my head
+And I, I am feeling a little peculiar
+And so I wake in the morning
+And I step outside
+And I take a deep breath and I get real high
+And I scream from the top of my lungs
+What's going on?
+And I say, hey hey hey hey
+I said hey, what's going on?
+And I say, hey hey hey hey
+I said hey, what's going on?
+And I say, hey hey hey hey
+I said hey, what's going on?
+And I say, hey hey hey hey
+I said hey, what's going on?
+Oh, oh oh oh
+Twenty-five years and my life is still
+Trying to get up that great big hill of hope
+For a destination</mutableString>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gun-JF-6Eq">
                                 <rect key="frame" x="0.0" y="809" width="414" height="30"/>
                                 <color key="backgroundColor" red="0.13058461939999999" green="0.74184342619999999" blue="0.1681971541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Clear Text">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="addEntryButtonTapped:" destination="jn4-D9-Fhi" eventType="touchUpInside" id="sDR-S8-cgd"/>
+                                    <action selector="clearTextButtonTapped:" destination="jn4-D9-Fhi" eventType="touchUpInside" id="Bqg-0b-f2Y"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JDF-Sv-Reo" firstAttribute="top" secondItem="8Sl-sP-kyL" secondAttribute="bottom" constant="25" id="22W-Y3-RS5"/>
                             <constraint firstItem="JDF-Sv-Reo" firstAttribute="width" secondItem="h8V-bA-Pfk" secondAttribute="width" multiplier="0.8" id="4Ke-LT-AkA"/>
@@ -106,14 +155,30 @@
                             <constraint firstItem="7sL-qZ-inQ" firstAttribute="bottom" secondItem="Gun-JF-6Eq" secondAttribute="bottom" constant="23" id="sMI-1v-yja"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7sL-qZ-inQ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XTF-i8-ljI" appends="YES" id="zAb-O0-SEm"/>
+                        </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="New In Tree" id="aV3-0C-BnP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GF1-TY-g2t">
+                            <connections>
+                                <action selector="addEntryButtonTapped:" destination="jn4-D9-Fhi" id="7bi-bk-QJp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bodyTextView" destination="JDF-Sv-Reo" id="GEb-e9-aVW"/>
+                        <outlet property="detailTitleItem" destination="aV3-0C-BnP" id="vjd-Og-dtS"/>
                         <outlet property="titleTextField" destination="8Sl-sP-kyL" id="cdP-Sn-JAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6V-Gk-EpQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="COE-9J-pSe" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="XTF-i8-ljI">
+                    <connections>
+                        <action selector="mainViewTapped:" destination="jn4-D9-Fhi" id="aPm-9q-18O"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1828" y="114"/>
         </scene>

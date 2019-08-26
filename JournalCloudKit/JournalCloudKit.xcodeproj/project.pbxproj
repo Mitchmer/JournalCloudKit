@@ -351,7 +351,7 @@
 				CODE_SIGN_ENTITLEMENTS = JournalCloudKit/JournalCloudKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H38T972U3;
-				INFOPLIST_FILE = JournalCloudKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JournalCloudKit/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,7 +370,7 @@
 				CODE_SIGN_ENTITLEMENTS = JournalCloudKit/JournalCloudKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H38T972U3;
-				INFOPLIST_FILE = JournalCloudKit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JournalCloudKit/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

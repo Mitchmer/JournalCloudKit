@@ -29,7 +29,6 @@ class EntryController {
     
     func addEntryWith(title: String, body: String, completion: @escaping (Bool) -> Void) {
         let entry = Entry(title: title, body: body)
-        entries.append(entry)
         saveEntry(entry: entry) { (success) in
             success ? completion(true) : completion(false)
         }
